@@ -4,19 +4,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { BeerListComponent } from './beer-list/beer-list.component';
+
 
 import { FormsModule } from '@angular/forms';
-import { BreweryAboutComponent } from './brewery-about/brewery-about.component';
-import { BreweryBeersComponent } from './brewery-beers/brewery-beers.component';
-import { BreweryCartComponent } from './brewery-cart/brewery-cart.component';
+import { PcListComponent } from './pc-list/pc-list.component';
+import { AddMercaderiaComponent } from './add-mercaderia/add-mercaderia.component';
+import { InputNumberComponent } from './input-number/input-number.component';
+import { CartComponent } from './cart/cart.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    BeerListComponent,
-    BreweryAboutComponent,
-    BreweryBeersComponent,
-    BreweryCartComponent
+    PcListComponent,
+    AddMercaderiaComponent,
+    InputNumberComponent,
+    CartComponent,
+   
   ],
   imports: [
     BrowserModule,

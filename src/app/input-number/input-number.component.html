@@ -1,0 +1,16 @@
+<div class="input-group">
+    <div class="input-group-prepend">
+        <button class="btn btn-success btn-sm" (click)="downQuantity()">-</button>
+    </div>
+    <input type="text" [maxlength]="max"
+    [(ngModel)]="quantity"
+    (keyup)="onChangeQuantity($event)"> 
+    <div class="input-group-append">
+        <button class="btn btn-success btn-sm" (click)="upQuantity()">+</button>
+    </div>
+    <!-- (click) es un evento del typescript
+        []es el nuevo dato que trae nuestro componente
+    []son input's enviamos algo
+    ()son para los output devolvemos algo
+    [()]enaviamos y devolvemos algo input-output -->
+</div>

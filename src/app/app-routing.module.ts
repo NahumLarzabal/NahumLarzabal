@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BreweryAboutComponent } from './brewery-about/brewery-about.component';
-import { BreweryBeersComponent } from './brewery-beers/brewery-beers.component';
+import { AddMercaderiaComponent } from './add-mercaderia/add-mercaderia.component';
+import { PcListComponent } from './pc-list/pc-list.component';
+
 
 const routes: Routes = [
   {path:'',
-  redirectTo: 'beers',
+  redirectTo: 'mercaderia-list',
 pathMatch: 'full'},
-  {path:'beers',
-component: BreweryBeersComponent},
-{path:'about',
-component: BreweryAboutComponent},
+  {path:'mercaderia-list',
+component: PcListComponent},
+{path:'mercaderia-agregar',
+component: AddMercaderiaComponent},
 
 ];
 
