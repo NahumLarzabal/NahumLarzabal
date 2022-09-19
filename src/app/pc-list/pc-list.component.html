@@ -9,7 +9,8 @@
             <th>Marca</th>
             <th>Precio</th>
             <th>Stock</th>
-            <th>Compra</th>
+            <th>Cantidad</th>
+            <th>Comprar</th>
         </tr>
     </thead>
 
@@ -25,9 +26,11 @@
         <td>
             <div class="input-group">
                 <app-input-number [(quantity)]="item.quantity" [max]="item.stock" *ngIf="item.stock"></app-input-number>
-                Cant: {{item.quantity}}
                 <!-- quantity y max viene desde nuestro componente @Input osea que le estamos mandando parametros al componente-->
             </div>
+        </td>
+        <td>
+            <button class="btn btn-primary" (click)="addToCart(item)">Comprar</button>
         </td>
     </tr>
   

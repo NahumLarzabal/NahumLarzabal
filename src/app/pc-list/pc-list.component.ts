@@ -61,7 +61,9 @@ items: Item[]=[{
 
   ngOnInit(): void {
   }
-  addToCart(item:Item){
+  addToCart(item: Item):void{
     this.cart.addToCart(item);
+    item.stock-= item.quantity;
+    item.quantity=0;
   }
 }
