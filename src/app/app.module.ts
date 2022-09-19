@@ -1,13 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 
+import { BeerListComponent } from './beer-list/beer-list.component';
+
+import { FormsModule } from '@angular/forms';
+import { BreweryAboutComponent } from './brewery-about/brewery-about.component';
+import { BreweryBeersComponent } from './brewery-beers/brewery-beers.component';
+import { BreweryCartComponent } from './brewery-cart/brewery-cart.component';
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent ],
-  bootstrap:    [ AppComponent ]
+  declarations: [
+    AppComponent,
+    BeerListComponent,
+    BreweryAboutComponent,
+    BreweryBeersComponent,
+    BreweryCartComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
