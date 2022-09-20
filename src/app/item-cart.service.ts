@@ -12,14 +12,14 @@ import { Item } from './pc-list/item';
 export class ItemCartService {
 
   private _cartList: Item[]=[];
-  cartList : BehaviorSubject <Item[]> = new BehaviorSubject([]);
+  
+  cartList : BehaviorSubject <Item[]> = new BehaviorSubject(this._cartList);
 
   constructor() { }
 
   addToCart(item: Item) {
     //find te busca si dentro del arreglos existe ese name
-   
-    let arts: Item = this._cartList.find((v1)=> v1.name == item.name);
+    let arts= this._cartList.find((v1)=> (v1.name == item.name)&&(v1.mark == item.mark));
     if(!arts){
       this._cartList.push( {... item});
     }else{
