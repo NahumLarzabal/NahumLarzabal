@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemCartService } from '../item-cart.service';
+import { PcDataService } from '../pc-data.service';
 import { Item } from './item';
 
 @Component({
@@ -9,57 +10,16 @@ import { Item } from './item';
 })
 //clearance es para ver si el articulo esta en promocion o no
 export class PcListComponent implements OnInit {
-items: Item[]=[{
-  name: "Ram 4gb",
-  type: "ddr3",
-  stock:10,
-  clearance:true,
-  quantity: 0,
-  image: "assets/img/ram4gbDdr3.jpg",
-  mark:"Kingston",
-  price:3500,
+items: Item[]=[];
+  
 
-},
-{
-  name: "Ram 8gb",
-  type: "ddr3",
-  stock:0,
-  clearance:false,
-  quantity: 0,
-  image: "assets/img/ram4gbDdr3.jpg",
-  mark:"Kingston",
-  price:5500,
-
-},
-{
-  name: "Ram 4gb",
-  type: "ddr4",
-  stock:10,
-  clearance:true,
-  quantity: 0,
-  image: "assets/img/ram4gbDdr4.jpg",
-  mark:"Viper",
-  price:5500,
-
-},
-{
-  name: "Ram 8gb",
-  type: "ddr4",
-  stock:10,
-  clearance:true,
-  quantity: 0,
-  image: "assets/img/ram4gbDdr4.jpg",
-  mark:"Viper",
-  price:9500,
-
-},
-];
 //relacion de dependencia inyectamos cart del service
-  constructor(private cart:ItemCartService) {
+  constructor(private cart:ItemCartService, private pcItemDataService: PcDataService) {
     
    }
 
   ngOnInit(): void {
+    this.pcItemDataService.getAll().subscribe(pcItems => this.items = pcItems) ;
   }
   addToCart(item: Item):void{
     this.cart.addToCart(item);
