@@ -1,28 +1,68 @@
-<form action="">
+<div class="container">
+    <div class="row">
+      <div class="col-9">
+        <h1>Lista de Articulos</h1>
+
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Marca</th>
+            <th>Precio</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+<tbody>
+    
+    <tr *ngFor="let item of items" [ngClass]="{'clearance':item.clearance}">
+        <td><img width="90" class="img-thumbnail"[src]="item.image" [alt]="item.name"></td>
+        <td>{{item.name | uppercase}}</td>
+        <td>{{item.type | uppercase}}</td>
+        <td>{{item.mark | uppercase}}</td>
+        <td>{{item.price|currency}}</td>
+        <td>{{item.stock}}</td>   
+    </tr>
+  
+</tbody>
+</table>
+</div>
+<div class="col-3">
+    <h3>Agregar nuevo articulo</h3>
+
     <div>
-        <label for="">Nombre de articulo</label>
-        <input type="text">
+        <label for="" >Nombre de articulo</label>
+        <input required [(ngModel)]="nombre"  type="text">
     </div>
     <div>
         <label for="">Tipo de articulo</label>
-        <input type="text">
+        <input required [(ngModel)]="type" type="text">
     </div>
     <div>
         <label for="">Marca</label>
-        <input type="text">
+        <input required [(ngModel)]="mark" type="text">
     </div>
     <div>
         <label for="">Precio</label>
-        <input type="text">
+        <input required [(ngModel)]="price" type="number">
     </div>
     <div>
         <label for="">Stock</label>
-        <input type="text">
+        <input  required [(ngModel)]="stock" type="number">
     </div>
+    
     <div>
-        <label for="">Imagen</label>
-        <span>buscar como agregar imagenes</span>
+        <button class="btn btn-primary" (click)="add()" >Add</button>
     </div>
    
 
-</form>
+
+</div>
+
+    
+   
+  </div>
+</div>
+
+ 

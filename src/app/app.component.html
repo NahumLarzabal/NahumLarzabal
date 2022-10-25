@@ -10,26 +10,18 @@
           <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/mercaderia-agregar']">Contacto</a>
+          <a class="nav-link" [routerLink]="['/mercaderia-agregar']">Agregar Articulo</a>
         </li>
         
       </ul>
     </div>
   </div>
 </nav>
-
 <div class="container">
   <div class="row">
-    <div class="col-9">
+
       <router-outlet></router-outlet>
-    </div>
-    <div class="col-3">
-      <app-cart></app-cart>
-     
-    </div>
-  </div>
 
-</div>
-
+</div></div>
 
 <footer>@{{title}} 2022</footer>

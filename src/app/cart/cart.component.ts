@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ItemCartService } from '../item-cart.service';
-import { Item } from '../pc-list/item';
+import { Item } from '../models/item';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +10,6 @@ import { Item } from '../pc-list/item';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
   cartList$: Observable<Item[]>;
   price$: Observable<number[]>;
   constructor(private cart: ItemCartService) {
@@ -17,7 +17,12 @@ export class CartComponent implements OnInit {
   this.price$ = cart.priceTotal.asObservable();
    }
   
+  
   ngOnInit(): void {
   }
+  removeToCart(i:any,x:any){
+    this.cart.removeToCart(i,x);
+ }
 
+ 
 }

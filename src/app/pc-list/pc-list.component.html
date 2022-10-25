@@ -1,4 +1,7 @@
-<h1>Lista de Cerbezas</h1>
+<div class="container">
+    <div class="row">
+      <div class="col-8">
+        <h1>Lista de Articulos</h1>
 
 <table class="table text-center">
     <thead>
@@ -11,13 +14,19 @@
             <th>Stock</th>
             <th>Cantidad</th>
             <th>Comprar</th>
+            <th>Eliminar</th>
         </tr>
     </thead>
 
 <tbody>
     
     <tr *ngFor="let item of items" [ngClass]="{'clearance':item.clearance}">
-        <td><img width="90" class="img-thumbnail"[src]="item.image" [alt]="item.name"></td>
+        <!-- con el, item.id le estoy pasando el parametro a la pagina-->
+        <td><a [routerLink]="['/mercaderia-list/',item.id]" >
+
+            <img width="90" class="img-thumbnail"[src]="item.image" [alt]="item.name" >
+        </a>
+    </td>
         <td>{{item.name | uppercase}}</td>
         <td>{{item.type | uppercase}}</td>
         <td>{{item.mark | uppercase}}</td>
@@ -29,10 +38,29 @@
                 <!-- quantity y max viene desde nuestro componente @Input osea que le estamos mandando parametros al componente-->
             </div>
         </td>
+        <td> 
+            <span class="btn btn-primary cursor">
+
+            <i  class="fa-sharp fa-solid fa-cart-plus"(click)="addToCart(item)"></i>
+        </span>
+
+           
+        </td>
         <td>
-            <button class="btn btn-primary" (click)="addToCart(item)">Comprar</button>
+            <span class="btn btn-danger cursor">
+                <i class="fa-solid fa-trash" (click)="remove(item)"></i>
+            </span>
         </td>
     </tr>
-  
+   
 </tbody>
 </table>
+
+</div>
+<div class="col-4">
+    <app-cart></app-cart>
+   
+  </div>
+</div>
+
+</div>  

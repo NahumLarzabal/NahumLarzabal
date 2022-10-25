@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable, Input, Output } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Item } from './pc-list/item';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Item } from './models/item';
 
 /**
  * Maneja la logica del carrito
@@ -30,7 +30,7 @@ export class ItemCartService {
     let arts= this._cartList.find((v1)=> (v1.name == item.name)&&(v1.mark == item.mark));
     if((!arts)){
       if(item.quantity!=0){
-      this._cartList.push( {... item});
+          this._cartList.push( {... item});
       }
     }else{
       arts.quantity += item.quantity;
@@ -46,4 +46,14 @@ export class ItemCartService {
     resultado = this.quantity * this.price;
     this.priceChange.emit(resultado);
   }
+
+  removeToCart(event:any,x:any){
+    console.log(x);
+    this._cartList.splice(event,1); 
+
+    //como hacer para devolverle el quantity a lo q borre del carrito
+  }
+  
+
+//preguntar como hacer el eliminar de la listita
 }
