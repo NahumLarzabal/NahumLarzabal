@@ -47,8 +47,7 @@ export class ItemCartService {
     this.priceChange.emit(resultado);
   }
 
-  removeToCart(event:any,x:any){
-    console.log(x);
+  removeToCart(event:any){
     this._cartList.splice(event,1); 
 
     //como hacer para devolverle el quantity a lo q borre del carrito

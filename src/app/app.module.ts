@@ -13,6 +13,7 @@ import { InputNumberComponent } from './input-number/input-number.component';
 import { CartComponent } from './cart/cart.component';
 import { NgClass } from '@angular/common';
 import { ViewItemComponent } from './view-item/view-item.component';
+import { ItemViewComponent } from './item-view/item-view.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ViewItemComponent } from './view-item/view-item.component';
     InputNumberComponent,
     CartComponent,
     ViewItemComponent,
+    ItemViewComponent,
    
   ],
   imports: [

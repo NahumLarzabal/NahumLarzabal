@@ -31,7 +31,7 @@ public remove (item:Item):Observable<Item>{
   
 }
 public viewItemPc(item:Item): Observable<Item[]>{
- return this.http.get<Item[]>(URL+'/'+item.id).pipe();
+ return this.http.get<Item[]>(URL+'/'+item.id);
 }
 
 }

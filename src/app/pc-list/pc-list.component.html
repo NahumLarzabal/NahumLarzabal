@@ -22,11 +22,9 @@
     
     <tr *ngFor="let item of items" [ngClass]="{'clearance':item.clearance}">
         <!-- con el, item.id le estoy pasando el parametro a la pagina-->
-        <td><a [routerLink]="['/mercaderia-list/',item.id]" >
-
-            <img width="90" class="img-thumbnail"[src]="item.image" [alt]="item.name" >
-        </a>
-    </td>
+        <td>
+            <app-view-item [articulo]="item"></app-view-item>
+        </td>
         <td>{{item.name | uppercase}}</td>
         <td>{{item.type | uppercase}}</td>
         <td>{{item.mark | uppercase}}</td>

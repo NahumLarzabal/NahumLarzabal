@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ItemCartService } from '../item-cart.service';
 import { PcDataService } from '../pc-data.service';
 import { Item } from '../models/item';
-import {ViewItemComponent} from '../view-item/view-item.component';
+
 
 @Component({
   selector: 'app-pc-list',
@@ -37,11 +37,11 @@ items: Item[]=[];
       });
   }
 
- getItem(item:Item){
+/* getItem(item:Item){
   this.pcItemDataService.viewItemPc(item).subscribe(pcItem=>{
     console.log("entre"+pcItem);
   });
  
- }
+ }*/
   
 }

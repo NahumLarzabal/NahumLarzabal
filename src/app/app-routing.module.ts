@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddMercaderiaComponent } from './add-mercaderia/add-mercaderia.component';
 import { PcListComponent } from './pc-list/pc-list.component';
-import {ViewItemComponent} from './view-item/view-item.component';
+import {ItemViewComponent} from './item-view/item-view.component';
 import { Params } from '@angular/router';
 
 
@@ -17,7 +17,7 @@ pathMatch: 'full'},
 {path:'mercaderia-agregar',
 component: AddMercaderiaComponent},
 {path: 'mercaderia-list/:id',
-component: ViewItemComponent},
+component: ItemViewComponent},
 ];
 // con el :id le estoy pidiendo el parametro a la ruta
 @NgModule({

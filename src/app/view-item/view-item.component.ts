@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { PcDataService } from '../pc-data.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Item } from '../models/item';
+import { PcDataService } from '../pc-data.service';
 
 @Component({
   selector: 'app-view-item',
@@ -9,21 +10,23 @@ import { Item } from '../models/item';
 })
 export class ViewItemComponent implements OnInit {
  
-  items: Item[]=[];
-
-  constructor(private pcItemDataService: PcDataService) { }
+  item: Item[]=[];
+  
+  
+  constructor(private pcItem : PcDataService) { }
+  @Input() articulo!:Item;
 
   ngOnInit(): void {
    
   }
 
- getItem(i:Item){
-   this.items.push(i);
-    /*this.pcItemDataService.viewItemPc(i).subscribe(pcItem=>{
-      console.log("entre"+pcItem);
-      this.items.push(pcItem);
-      console.log("entre"+this.items)
-    });*/
+ getItem(i:Item):any{
+
+    this.pcItem.viewItemPc(i).subscribe(()=>{
+      this.item.push(i);
+      console.log(this.item);
+    });
     
   }
+ 
 }

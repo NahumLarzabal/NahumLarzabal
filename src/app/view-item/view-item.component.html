@@ -1,14 +1,8 @@
 <div>
-    <h1>        Detalle del Item
-    </h1>
-<button ></button>
-    <p *ngFor="let item of items">
-        {{item.name | uppercase}}
-        {{item.type | uppercase}}
-        {{item.mark | uppercase}}
-        {{item.price|currency}}
-        {{item.stock}}
-        {{item.clearance}}
-        <span>Holaa</span>
-    </p>
+   
+    <a [routerLink]="['/mercaderia-list/',articulo.id]" (click)="getItem(articulo)">
+        <!-- <app-item-view  hidden [itemView]="articulo"  ></app-item-view> -->
+        <img  width="90" class="img-thumbnail"[src]="articulo.image" [alt]="articulo.name" >
+    </a>
+   
 </div>
