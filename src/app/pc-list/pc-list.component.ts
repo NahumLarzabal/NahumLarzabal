@@ -12,13 +12,14 @@ import { Item } from '../models/item';
 //clearance es para ver si el articulo esta en promocion o no
 export class PcListComponent implements OnInit {
 items: Item[]=[];
-  
+
 
 //relacion de dependencia inyectamos cart del service
   constructor(private cart:ItemCartService, private pcItemDataService: PcDataService) {
    
    }
 
+   filterPost='';
   ngOnInit(): void {
     this.getAll();
   }

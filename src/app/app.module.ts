@@ -14,6 +14,7 @@ import { CartComponent } from './cart/cart.component';
 import { NgClass } from '@angular/common';
 import { ViewItemComponent } from './view-item/view-item.component';
 import { ItemViewComponent } from './item-view/item-view.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ItemViewComponent } from './item-view/item-view.component';
     CartComponent,
     ViewItemComponent,
     ItemViewComponent,
+    FilterPipe,
    
   ],
   imports: [
@@ -31,6 +33,9 @@ import { ItemViewComponent } from './item-view/item-view.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+  ],
+  exports:[
+    ItemViewComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

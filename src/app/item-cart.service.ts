@@ -24,7 +24,7 @@ export class ItemCartService {
   @Input()
   price!: number;
   @Output() priceChange: EventEmitter<number> = new EventEmitter<number>;
-  
+  @Output() quantityChange: EventEmitter<number> = new EventEmitter<number>;
   addToCart(item: Item) {
     //find te busca si dentro del arreglos existe ese name
     let arts= this._cartList.find((v1)=> (v1.name == item.name)&&(v1.mark == item.mark));
@@ -48,8 +48,8 @@ export class ItemCartService {
   }
 
   removeToCart(event:any){
-    this._cartList.splice(event,1); 
-
+    this._cartList.splice(event,1);
+    let x = event.stock;
     //como hacer para devolverle el quantity a lo q borre del carrito
   }
   

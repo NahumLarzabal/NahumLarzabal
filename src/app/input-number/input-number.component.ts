@@ -32,4 +32,7 @@ export class InputNumberComponent implements OnInit {
     console.log(event.target);
     this.quantityChange.emit(this.quantity);
   }
+  remove(){
+    
+  }
 }

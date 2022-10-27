@@ -10,8 +10,9 @@ const URL = "https://60d625ca943aa60017768e8e.mockapi.io/api/tpe/PC-Items";
 @Injectable({
   providedIn: 'root'
 })
+
 export class PcDataService {
- 
+  item: Item[]=[];
   constructor(private http: HttpClient) {}
   //se tiene que tipar el observable
   public getAll(): Observable<Item[]>{
@@ -31,7 +32,13 @@ public remove (item:Item):Observable<Item>{
   
 }
 public viewItemPc(item:Item): Observable<Item[]>{
+  this.item.push(item);
  return this.http.get<Item[]>(URL+'/'+item.id);
+}
+public itemView(){
+  return this.item;
+    
+  ;
 }
 
 }

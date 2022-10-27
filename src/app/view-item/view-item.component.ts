@@ -21,10 +21,8 @@ export class ViewItemComponent implements OnInit {
   }
 
  getItem(i:Item):any{
-
     this.pcItem.viewItemPc(i).subscribe(()=>{
       this.item.push(i);
-      console.log(this.item);
     });
     
   }
