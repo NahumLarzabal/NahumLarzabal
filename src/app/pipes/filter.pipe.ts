@@ -9,7 +9,8 @@ export class FilterPipe implements PipeTransform {
     //if(arg == '' || arg.length < 2) return value;
     let resultPost=[];
     for(let pos of value){
-      if (pos.name.toLowerCase().indexOf(arg)>-1){
+      //hacer condicion de busqueda de marca o precio o tipo
+      if (pos.name.toLowerCase().indexOf(arg)>-1||pos.mark.toLowerCase().indexOf(arg)>-1||pos.type.toLowerCase().indexOf(arg)>-1){
         resultPost.push(pos);
       }
     }
@@ -17,3 +18,4 @@ export class FilterPipe implements PipeTransform {
   }
 
 }
+

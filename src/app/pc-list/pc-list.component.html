@@ -2,10 +2,17 @@
     <div class="row">
       <div class="col-8">
         <h1>Lista de Articulos</h1>
-    <div>
-        <label for="">Search</label>
-        <input type="text" name="filterPost" placeholder="Search....." [(ngModel)]="filterPost">
+   <div class="container">
+        <div class="row height d-flex justify-content-center align-items-center">
+            <div class="col-md-6">
+                <div class="form">
+                <i class="fa fa-search"></i>
+                <input type="search" [(ngModel)]="filterPost" name="filterPost" class="form-control form-input" placeholder="Search Item...">
+                </div>
+            </div>
+        </div>
     </div>
+           
 <table class="table text-center">
     <thead>
         <tr>
@@ -22,8 +29,9 @@
     </thead>
 
 <tbody>
-    
-    <tr *ngFor="let item of items | filter: filterPost" [ngClass]="{'clearance':item.clearance}">
+    <!--tratando de hacer el paginado hay q importar una libreria  ver documentacion http://michaelbromley.github.io/ngx-pagination/#/
+         | paginate: {itemsPerPage:5, currentPage:page} -->
+    <tr *ngFor="let item of items  | filter: filterPost | paginate: { itemsPerPage: 3, currentPage: page }" [ngClass]="{'clearance':item.clearance}">
         <!-- con el, item.id le estoy pasando el parametro a la pagina-->
         <td>
             <app-view-item [articulo]="item"></app-view-item>
@@ -32,7 +40,8 @@
         <td>{{item.type | uppercase}}</td>
         <td>{{item.mark | uppercase}}</td>
         <td>{{item.price|currency}}</td>
-        <td><span class="badge bg-warning text-dark" *ngIf="item.stock==0">SIN STOCK</span> </td>
+        <td><span class="badge bg-warning text-dark" *ngIf="item.stock==0">SIN STOCK</span>
+        <span class="badge bg-secundary text-dark" *ngIf="item.stock!=0" >{{item.stock}}</span> </td>
         <td>
             <div class="input-group">
                 <app-input-number [(quantity)]="item.quantity" [max]="item.stock" *ngIf="item.stock"></app-input-number>
@@ -42,10 +51,9 @@
         <td> 
             <span class="btn btn-primary cursor">
 
-            <i  class="fa-sharp fa-solid fa-cart-plus"(click)="addToCart(item)"></i>
+            <i  class="fa-sharp fa-solid fa-cart-plus"(click)="addToCart(item)" (click)="valueStock(item)"></i>
         </span>
 
-           
         </td>
         <td>
             <span class="btn btn-danger cursor">
@@ -56,7 +64,7 @@
    
 </tbody>
 </table>
-
+<pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls> 
 </div>
 <div class="col-4">
     <app-cart></app-cart>

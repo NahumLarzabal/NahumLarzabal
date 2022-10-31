@@ -14,6 +14,7 @@ type: string='';
 stock:number = 0;
 mark:string='';
 price: number = 0; 
+img: string= '';
 
 
 newArt(){
@@ -24,12 +25,11 @@ newArt(){
   constructor(private pcItemDataService: PcDataService) {
     
    }
-
+   page!:number;
   ngOnInit(): void {
     this.pcItemDataService.getAll().subscribe(pcItems => this.items = pcItems) ;
   }
   add(){
-    
     let articulo: Item ={
       name: this.nombre,
       type: this.type,

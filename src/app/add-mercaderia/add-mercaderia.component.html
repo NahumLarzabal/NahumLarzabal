@@ -16,7 +16,7 @@
     </thead>
 <tbody>
     
-    <tr *ngFor="let item of items" [ngClass]="{'clearance':item.clearance}">
+    <tr *ngFor="let item of items | paginate: { itemsPerPage: 3, currentPage: page }" [ngClass]="{'clearance':item.clearance}">
         <td><img width="90" class="img-thumbnail"[src]="item.image" [alt]="item.name"></td>
         <td>{{item.name | uppercase}}</td>
         <td>{{item.type | uppercase}}</td>
@@ -27,37 +27,37 @@
   
 </tbody>
 </table>
+<pagination-controls class="text-center" (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls> 
+
 </div>
 <div class="col-3">
     <h3>Agregar nuevo articulo</h3>
-
-    <div>
-        <label for="" >Nombre de articulo</label>
-        <input required [(ngModel)]="nombre"  type="text">
+    <div class="form-group">
+        <label for="formGroupExampleInput">Nombre de articulo</label>
+        <input required [(ngModel)]="nombre"  type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre del Artticulo">
     </div>
-    <div>
-        <label for="">Tipo de articulo</label>
-        <input required [(ngModel)]="type" type="text">
+    <div class="form-group">
+        <label for="formGroupExampleInput">Tipo de articulo</label>
+        <input required [(ngModel)]="type"  type="text" class="form-control" id="formGroupExampleInput" placeholder="Tipo de articulo">
     </div>
-    <div>
-        <label for="">Marca</label>
-        <input required [(ngModel)]="mark" type="text">
+    <div class="form-group">
+        <label for="formGroupExampleInput">Marca</label>
+        <input required [(ngModel)]="mark"  type="text" class="form-control" id="formGroupExampleInput" placeholder="Marca">
     </div>
-    <div>
-        <label for="">Precio</label>
-        <input required [(ngModel)]="price" type="number">
+    <div class="form-group">
+        <label for="formGroupExampleInput">Precio</label>
+        <input required [(ngModel)]="price"  type="text" class="form-control" value="0" id="formGroupExampleInput" placeholder="$100">
     </div>
-    <div>
-        <label for="">Stock</label>
-        <input  required [(ngModel)]="stock" type="number">
+    <div class="form-group">
+        <label for="formGroupExampleInput">Stock</label>
+        <input required [(ngModel)]="stock"  type="text" class="form-control" value="0" id="formGroupExampleInput" placeholder="5">
     </div>
     
-    <div>
-        <button class="btn btn-primary" (click)="add()" >Add</button>
+    <div class="text-center">
+        <br>
+        <button class="btn btn-primary " (click)="add()" >Add</button>
     </div>
-   
-
-
+  
 </div>
 
     

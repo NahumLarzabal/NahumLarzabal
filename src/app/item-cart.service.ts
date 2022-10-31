@@ -16,9 +16,10 @@ export class ItemCartService {
   
   cartList : BehaviorSubject <Item[]> = new BehaviorSubject(this._cartList);
   priceTotal : BehaviorSubject<number[]>= new BehaviorSubject(this._priceTotal);
-
+  stockAux:Item[]=[];
 
   constructor() { }
+
   @Input()
   quantity!: number;
   @Input()
@@ -47,12 +48,14 @@ export class ItemCartService {
     this.priceChange.emit(resultado);
   }
 
-  removeToCart(event:any){
+  removeToCart(event:number){
     this._cartList.splice(event,1);
-    let x = event.stock;
+    }
     //como hacer para devolverle el quantity a lo q borre del carrito
-  }
   
+    cartStockAdd(i:Item){
+        this.stockAux.push(i);
+      }
 
 //preguntar como hacer el eliminar de la listita
 }

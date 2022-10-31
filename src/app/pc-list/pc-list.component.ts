@@ -13,6 +13,8 @@ import { Item } from '../models/item';
 export class PcListComponent implements OnInit {
 items: Item[]=[];
 
+//para el paguinado
+page!:number;
 
 //relacion de dependencia inyectamos cart del service
   constructor(private cart:ItemCartService, private pcItemDataService: PcDataService) {
@@ -31,6 +33,7 @@ items: Item[]=[];
     item.stock-= item.quantity;
     item.quantity=0;
   }
+  
   remove(item: Item){
     this.pcItemDataService.remove(item).subscribe(pcItem =>{
        console.log("se elimino "+pcItem.id)
@@ -38,11 +41,15 @@ items: Item[]=[];
       });
   }
 
-/* getItem(item:Item){
-  this.pcItemDataService.viewItemPc(item).subscribe(pcItem=>{
-    console.log("entre"+pcItem);
-  });
- 
- }*/
+  valueStock(s:Item){
+   this.pcItemDataService.addStock(s);
+  }
+
+  restoreStock(){
+    this.pcItemDataService.valueStock();
+  }
+
+
   
+  //traer del componeten cart el stock q se envio y agregarlo nuevamente al stock de aca
 }

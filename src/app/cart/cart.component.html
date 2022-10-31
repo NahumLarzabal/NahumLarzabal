@@ -1,7 +1,7 @@
 <h3>Carrito de Compras</h3>
 <ul>
     <li *ngFor="let item of ( cartList$ | async); let i=index">{{item.name}} {{item.mark}}: {{item.quantity}}
-            <i class="text-danger cursor fa-solid fa-trash" (click)="removeToCart(i)"></i>
+            <i class="text-danger cursor fa-solid fa-trash" (click)="removeToCart(i,item)" (click)="cartStock(item)"></i>
     </li>
     
            

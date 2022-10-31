@@ -1,8 +1,8 @@
 <div class="input-group">
-    <div class="input-group-prepend">
+    <div class="input-group-prepend ">
         <button class="btn btn-success btn-sm" (click)="downQuantity()">-</button>
     </div>
-    <input type="text" [maxlength]="max"
+    <input type="text" class="text-center" [maxlength]="max"
     [(ngModel)]="quantity"
     (keyup)="onChangeQuantity($event)"> 
     <div class="input-group-append">
